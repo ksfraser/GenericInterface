@@ -3,6 +3,8 @@ namespace Ksfraser\GenericInterface;
 
 trait GenericFaInterfaceTrait
 {
+    use GenericObjectMappingTrait;
+
     /** @var array<int, array<string, mixed>> */
     public $fields_array = [];
 
@@ -49,17 +51,6 @@ trait GenericFaInterfaceTrait
      */
     public function insert_data(array $data): bool
     {
-        return true;
-    }
-
-    /**
-     * @param array<string, mixed> $row
-     */
-    public function arr2obj(array $row): bool
-    {
-        foreach ($row as $key => $value) {
-            $this->$key = $value;
-        }
         return true;
     }
 }
