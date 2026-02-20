@@ -29,8 +29,9 @@ trait GenericFaInterfaceTrait
         }
         if ($enforce) {
             //Field must belong to the class so we aren't dynamically creating properties that don't exist in the database or aren't defined in the class.
-                throw new \Exception("Field $field is not a valid property of " . get_class($this));
-            }
+		if (!property_exists($this, $field)) {
+                	throw new \Exception("Field $field is not a valid property of " . get_class($this));
+            	}
         $this->$field = $value;
         return true;
     }
