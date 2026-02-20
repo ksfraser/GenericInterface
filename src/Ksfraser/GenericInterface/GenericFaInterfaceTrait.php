@@ -32,6 +32,7 @@ trait GenericFaInterfaceTrait
 		if (!property_exists($this, $field)) {
                 	throw new \Exception("Field $field is not a valid property of " . get_class($this));
             	}
+	}
         $this->$field = $value;
         return true;
     }
